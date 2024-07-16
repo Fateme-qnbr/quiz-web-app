@@ -1,0 +1,25 @@
+
+@font-face {
+  font-family: PlaywriteHR;
+  src: url(PlaywriteHR-VariableFont_wght.ttf);
+}
+
+body {
+  background-color: #070D4C;
+
+}
+h1{
+  font-family: PlaywriteHR;
+  font-size: 20rem;
+  /* border-color: #120452 , #0BA8BD , #D509F6; */
+  color: #070D4C;
+  -webkit-text-stroke: 13px rgb(57, 193, 218);
+
+  text-shadow: #D509F6;
+
+}
+span{
+  font-size: 5rem;
+  -webkit-text-stroke: 7px rgb(57, 193, 218);
+
+}

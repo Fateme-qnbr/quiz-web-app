@@ -11,7 +11,7 @@ body {
 
 .up-circle{
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   width: 2593.44px;
   height: 540.22px;
   left: -395px;
@@ -21,11 +21,42 @@ body {
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transform: rotate(-13.97deg);
+  z-index: 1;
 } 
 .img{
+
+  left: 395px;
+  margin: 300px 0px 0px;
   position: absolute;
   z-index: 2;
-  margin-top: 800px;
-  width: 270px;
-  height: 360px;
+  width: 255px;
+  height: 260px;
+}
+
+/* ? */
+h1{
+position: absolute;
+width: 70px;
+height: 90px;
+left: 777px;
+top: 300px;
+margin: 0px 100px 0px 280px;
+font-family: 'Playwrite HR';
+font-weight: 400;
+font-size: 400px;
+line-height: 64px;
+letter-spacing: -0.25px;
+color: #070D4C;
+-webkit-text-stroke:10px #283469;
+}
+#rectangle1{
+  position: absolute;
+  width: 300.9px;
+  height: 48.85px;
+  left: 904px;
+  top: 549px;
+  margin: 10px 20px 50px 50px;
+  background: #283469;
+  border-radius: 25%;  
+
 }

@@ -1,24 +1,101 @@
 // import './style.css'
-// import javascriptLogo from './javascript.svg'
-// import viteLogo from '/vite.svg'
-// import { setupCounter } from './counter.js'
 
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vitejs.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
+document.addEventListener('DOMContentLoaded', function() {
+    const btn_img = document.getElementById('img');
+    const img = document.getElementById('img');
+    const question_mark = document.getElementById('question_mark');
+    const shape = document.getElementById('shape');
 
-// setupCounter(document.querySelector('#counter'))
+
+    const chooseQuiz = [{
+        title:"choose your favorite",
+        button_choose:["General","Animal","Science"]
+    }];
+
+    const generalData = [
+        {
+            question:"",
+            options: [],
+            answer:""
+        }
+    ];
+    const animalData = [
+        {
+            question:"",
+            options: [],
+            answer:""
+        }
+    ];
+
+    const scienceData = [
+        {
+            question:"",
+            options: [],
+            answer:""
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+
+    const questionTitle = document.getElementById('');
+    const questionOptions = document.getElementById('');
+    const nextBtn = document.getElementById('');
+
+    
+
+
+
+    btn_img.addEventListener('click', function() {
+        setTimeout(function() { 
+            question_mark.classList.add('fade-out');
+            shape.classList.add('fade-out');
+            img.classList.add('fade-out')
+
+            // Remove elements after the transition ends
+            question_mark.addEventListener('transitionend', function() {
+                question_mark.remove();
+            });
+            shape.addEventListener('transitionend', function() {
+                shape.remove();
+            });
+            img.addEventListener('transitionend', function() {
+                img.remove();
+            });
+        });
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+});

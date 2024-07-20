@@ -33,8 +33,7 @@ body {
   z-index: 1;
 } 
 
-
-.img{
+#img{
 
   left: 395px;
   margin: 300px 0px 0px;
@@ -45,7 +44,7 @@ body {
 }
 
 /* ? */
-h1{
+#question_mark{
 position: absolute;
 width: 50px;
 height: 70px;
@@ -62,7 +61,7 @@ color: #070D4C;
 animation: movit 3s ease-in-out infinite;
 }
 
-.shape{
+#shape{
   left: 930px;
   top: 400px;
   position: absolute;
@@ -80,10 +79,8 @@ animation: movit 3s ease-in-out infinite;
   }
 }
 
-.new-content {
-  /* Styles for the new content */
-  display: none; /* This is essential to hide the new content initially */
-  border: 2px solid #00f;
-  padding: 20px;
-  background-color: #e0e0ff;
+.fade-out {
+  transition: opacity 1s ease-out, box-shadow 1s ease-out;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }

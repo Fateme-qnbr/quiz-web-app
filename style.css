@@ -14,9 +14,6 @@ body {
   overflow: hidden;
 
 }
-.container{
-  display: flex;
-}
 
 .up-circle{
   box-sizing: border-box;
@@ -32,6 +29,7 @@ body {
   transform: rotate(-13.97deg);
   z-index: 1;
 } 
+
 
 #img{
 
@@ -83,4 +81,26 @@ animation: movit 3s ease-in-out infinite;
   transition: opacity 1s ease-out, box-shadow 1s ease-out;
   opacity: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.show {
+  opacity: 1;
+  transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+}
+#quiz-selection, #quiz-container, #score-container {
+  position: absolute;
+  width: 542px;
+  height: 575px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #BDC7F0;
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
 }

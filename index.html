@@ -9,21 +9,42 @@
   </head>
   <body>
     <div class="content">
-      <div class="up-circle"></div>
+      <div class="up-circle" id="up-circle" style="display: flex;">
+      </div>
     
       <input type="image" src="javascript.svg" name="img" class="fade-in" id="img"/>
       <h1 id="question_mark" class="fade-in">?</h1>
       <img src="shape.svg" class="fade-in" id="shape" alt="">
       <!-- choose the kind of quiz -->
-       <div id="quiz-container">
-        <h2 id="question-choose">Choose page</h2>
-        <h2 id="question-title">question title</h2>
-        <div id="underline"></div>
-        <div id="question-options"></div>
-        <button class="titles"></button>
-        <button id="next-btn">Next</button>
+      
+      <div id="quiz-selection" style="display: none;">
+        <h1>Choose your favorite</h1>
+        <button class="quiz-btn" data-quiz="General">General</button>
+        <button class="quiz-btn" data-quiz="Animal">Animal</button>
+        <button class="quiz-btn" data-quiz="Science">Science</button>
        </div>
+
+
+       <div id="quiz-container" class="fade" style="display: none;">
+        <h1 id="question-title">Question Title</h1>
+        <div id="question-options"></div>
+        <button id="next-btn">Next</button>
+        <div id="feedback"></div>
+       </div>
+
+       <div id="score-container" style="display: none;">
+        <h1>Your Score</h1>
+        <p id="score"></p>
+        <button id="try-again-btn">Try Again</button>
+      </div>
+
+
     </div>
     <script type="module" src="main.js"></script>
   </body>
 </html>
+
+
+
+<!--         <div id="underline"></div>
+ -->

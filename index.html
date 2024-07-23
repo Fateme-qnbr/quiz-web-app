@@ -18,14 +18,17 @@
       <!-- choose the kind of quiz -->
       
       <div id="quiz-selection" style="display: none;">
-        <h1>Choose your favorite</h1>
-        <button class="quiz-btn" data-quiz="General">General</button>
-        <button class="quiz-btn" data-quiz="Animal">Animal</button>
-        <button class="quiz-btn" data-quiz="Science">Science</button>
+        <h1 id="selection">Choose your favorite</h1>
+        <div id="underline"></div>
+          <button type="button" class="quiz-btn" data-quiz="General">General</button>
+          <button type="button" class="quiz-btn1" data-quiz="Animal">Animal</button>
+          <button type="button" class="quiz-btn2" data-quiz="Science">Science</button> 
+       
        </div>
 
 
        <div id="quiz-container" class="fade" style="display: none;">
+        <div id="underline"></div>
         <h1 id="question-title">Question Title</h1>
         <div id="question-options"></div>
         <button id="next-btn">Next</button>
@@ -33,10 +36,12 @@
        </div>
 
        <div id="score-container" style="display: none;">
+        <div id="underline"></div>
         <h1>Your Score</h1>
         <p id="score"></p>
         <button id="try-again-btn">Try Again</button>
       </div>
+         
 
 
     </div>
@@ -46,5 +51,4 @@
 
 
 
-<!--         <div id="underline"></div>
- -->
+ 

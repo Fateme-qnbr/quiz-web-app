@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizSelection = document.getElementById('quiz-selection');
     const quizContainer = document.getElementById('quiz-container');
     const scoreContainer = document.getElementById('score-container');
-    
+    const quizTitle = document.getElementById('quiz-title');
     const questionTitle = document.getElementById('question-title');
     const questionOptions = document.getElementById('question-options');
     const nextBtn = document.getElementById('next-btn');
@@ -14,27 +14,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const tryAgainBtn = document.getElementById('try-again-btn');
     
     const generalData = [
-        { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" },
-        { question: "Which continent is Egypt in?", options: ["Asia", "Africa", "Europe", "Australia"], answer: "Africa" },
-        { question: "What is the currency of Japan?", options: ["Yen", "Dollar", "Euro", "Won"], answer: "Yen" },
-        { question: "What is the largest ocean?", options: ["Atlantic", "Indian", "Pacific", "Arctic"], answer: "Pacific" },
-        { question: "What language is spoken in Brazil?", options: ["Spanish", "Portuguese", "English", "French"], answer: "Portuguese" }
+        { title:"General", question: "1.What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" },
+        { title:"General", question: "2.Which continent is Egypt in?", options: ["Asia", "Africa", "Europe", "Australia"], answer: "Africa" },
+        { title:"General", question: "3.What is the currency of Japan?", options: ["Yen", "Dollar", "Euro", "Won"], answer: "Yen" },
+        { title:"General", question: "4.What is the largest ocean?", options: ["Atlantic", "Indian", "Pacific", "Arctic"], answer: "Pacific" },
+        { title:"General", question: "5.What language is spoken in Brazil?", options: ["Spanish", "Portuguese", "English", "French"], answer: "Portuguese" }
     ];
     
     const animalData = [
-        { question: "Which animal is known as the king of the jungle?", options: ["Lion", "Tiger", "Elephant", "Cheetah"], answer: "Lion" },
-        { question: "What is the largest mammal?", options: ["Elephant", "Blue Whale", "Giraffe", "Rhino"], answer: "Blue Whale" },
-        { question: "Which animal is known for its stripes?", options: ["Tiger", "Leopard", "Zebra", "Giraffe"], answer: "Zebra" },
-        { question: "What is a baby kangaroo called?", options: ["Calf", "Joey", "Cub", "Pup"], answer: "Joey" },
-        { question: "Which bird is a universal symbol of peace?", options: ["Dove", "Eagle", "Sparrow", "Peacock"], answer: "Dove" }
+        { title:"Animal", question: "1.Which animal is known as the king of the jungle?", options: ["Lion", "Tiger", "Elephant", "Cheetah"], answer: "Lion" },
+        { title:"Animal", question: "2.What is the largest mammal?", options: ["Elephant", "Blue Whale", "Giraffe", "Rhino"], answer: "Blue Whale" },
+        { title:"Animal", question: "3.Which animal is known for its stripes?", options: ["Tiger", "Leopard", "Zebra", "Giraffe"], answer: "Zebra" },
+        { title:"Animal", question: "4.What is a baby kangaroo called?", options: ["Calf", "Joey", "Cub", "Pup"], answer: "Joey" },
+        { title:"Animal", question: "5.Which bird is a universal symbol of peace?", options: ["Dove", "Eagle", "Sparrow", "Peacock"], answer: "Dove" }
     ];
     
     const scienceData = [
-        { question: "What planet is known as the Red Planet?", options: ["Earth", "Mars", "Jupiter", "Venus"], answer: "Mars" },
-        { question: "What is the chemical symbol for water?", options: ["H2O", "O2", "CO2", "NaCl"], answer: "H2O" },
-        { question: "What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "1,000 km/s", "500 km/s"], answer: "300,000 km/s" },
-        { question: "What force keeps us on the ground?", options: ["Magnetism", "Gravity", "Friction", "Tension"], answer: "Gravity" },
-        { question: "What is the human body's largest organ?", options: ["Heart", "Liver", "Skin", "Lungs"], answer: "Skin" }
+        { title:"Science", question: "1.What planet is known as the Red Planet?", options: ["Earth", "Mars", "Jupiter", "Venus"], answer: "Mars" },
+        { title:"Science", question: "2.What is the chemical symbol for water?", options: ["H2O", "O2", "CO2", "NaCl"], answer: "H2O" },
+        { title:"Science", question: "3.What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "1,000 km/s", "500 km/s"], answer: "300,000 km/s" },
+        { title:"Science", question: "4.What force keeps us on the ground?", options: ["Magnetism", "Gravity", "Friction", "Tension"], answer: "Gravity" },
+        { title:"Science", question: "5.What is the human body's largest organ?", options: ["Heart", "Liver", "Skin", "Lungs"], answer: "Skin" }
     ];
     
     let currentQuestionIndex = 0;
@@ -65,9 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadQuestion(index) {
+        const title = currentQuizData[index];
         const question = currentQuizData[index];
-        questionTitle.textContent = question.question;
-
+        quizTitle.textContent = title.title;
+        questionTitle.textContent = question.question
+        
         questionOptions.innerHTML = '';
         question.options.forEach(option => {
             const optionElement = document.createElement('button');
@@ -83,13 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkAnswer(selectedOption) {
         const currentQuestion = currentQuizData[currentQuestionIndex];
+        const optionButtons = document.querySelectorAll('.option-btn');
+        optionButtons.forEach(button => button.disabled = true);
         if (selectedOption === currentQuestion.answer) {
             feedback.textContent = 'Correct!';
             feedback.style.color = 'green';
+            selectedButton.style.backgroundColor = '#7BE29E';
             score++;
         } else {
             feedback.textContent = `Wrong! The correct answer is ${currentQuestion.answer}.`;
             feedback.style.color = 'red';
+            selectedButton.style.backgroundColor = '#F2A8A8';
+            optionButtons.forEach(button => {
+                if (button.textContent === currentQuestion.answer) {
+                    button.style.backgroundColor = '#7BE29E';
+                }
+            });
         }
     }
 

@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedback = document.getElementById('feedback');
     const scoreDisplay = document.getElementById('score');
     const tryAgainBtn = document.getElementById('try-again-btn');
-    
+    const startBtn = document.getElementById('start-btn');
+
     const generalData = [
         { title:"General", question: "1.What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" },
         { title:"General", question: "2.Which continent is Egypt in?", options: ["Asia", "Africa", "Europe", "Australia"], answer: "Africa" },
@@ -86,11 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkAnswer(selectedOption) {
         const currentQuestion = currentQuizData[currentQuestionIndex];
         const optionButtons = document.querySelectorAll('.option-btn');
+        let selectedButton = questionOptions;
         optionButtons.forEach(button => button.disabled = true);
         if (selectedOption === currentQuestion.answer) {
             feedback.textContent = 'Correct!';
             feedback.style.color = 'green';
             selectedButton.style.backgroundColor = '#7BE29E';
+            
             score++;
         } else {
             feedback.textContent = `Wrong! The correct answer is ${currentQuestion.answer}.`;
@@ -125,10 +128,10 @@ document.addEventListener('DOMContentLoaded', function() {
         quizSelection.style.display = 'block';
     });
 
-    btn_img.addEventListener('click', function() {
+    startBtn.addEventListener('click', function() {
         setTimeout(function() {
             question_mark.classList.add('fade-out');
-            shape.classList.add('fade-out');
+            startBtn.classList.add('fade-out');
             btn_img.classList.add('fade-out');
             // quizContainer.classList.add('fade');
 
@@ -136,8 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
             question_mark.addEventListener('transitionend', function() {
                 question_mark.remove();
             });
-            shape.addEventListener('transitionend', function() {
-                shape.remove();
+            startBtn.addEventListener('transitionend', function() {
+                startBtn.remove();
             });
             btn_img.addEventListener('transitionend', function() {
                 btn_img.remove();

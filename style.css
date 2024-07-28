@@ -7,13 +7,17 @@
   font-family: 'Jost';
   src: url('Jost-VariableFont_wght.ttf');
 }
+html{
+  font-size: 50%;
+  overflow: hidden;
+}
 body {
   background-color: #070D4C;
   display: flex;
   align-content: center;
   justify-content: center;
-  min-height: auto;
-  min-width: auto;
+  max-width: 500px;
+  max-width: 100%;
   overflow: hidden;
 
 }
@@ -21,10 +25,10 @@ body {
 .up-circle{
   box-sizing: border-box;
   position: fixed;
-  width: 2593.44px;
+   width: 2593.44px;
   height: 540.22px;
   left: -395px;
-  top: -380px;
+  top: -380px; 
   border-radius: 350%;
   background: #283469;
   border: 1px solid #000000;
@@ -36,32 +40,65 @@ body {
 
 #img{
 
-  left: 395px;
-  margin: 300px 0px 0px;
-  position: absolute;
+  left: 15%;
+  margin-top: 16%;
+  position: fixed;
   z-index: 2;
-  width: 210px;
-  height: 225px;
+  width: 25%;
+  height: 60%;
+  /* width: 280px;
+  height: 325px; */
+  animation: movit 15s ease-in-out infinite;
 }
 
 /* ? */
 #question_mark{
 position: absolute;
-width: 50px;
-height: 70px;
-left: 779px;
-top: 315px;
-margin: 0px 100px 0px 280px;
+max-width: 25px;
+height: 50px;
+left: 63%;
+top: 55%;
+margin: auto;
 font-family: 'Playwrite HR';
 font-weight: 400;
-font-size: 300px;
-line-height: 64px;
-letter-spacing: -0.25px;
+font-size: 40rem;
+line-height: 20%;
 color: #070D4C;
--webkit-text-stroke:10px #283469;
+z-index: 2;
+-webkit-text-stroke:10px #c912aa88; 
 animation: movit 3s ease-in-out infinite;
-}
 
+}
+#start-container{
+  position: absolute;
+  display: block;
+  width: 252px;
+  height: 175px;
+  left: 50%;
+  top: 50%;
+  background: #BDC7F0;
+  border-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+
+}
+#start-btn{
+  font-family: 'Jost';
+  width: 60%;
+  height: 30%;
+  border-radius: 10px;
+  background: #283469;
+  position: absolute;  
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 22px;
+  align-items: center;
+  border-width: 0.1px;
+}
 #shape{
   left: 930px;
   top: 400px;
@@ -72,10 +109,10 @@ animation: movit 3s ease-in-out infinite;
 }
 
 @keyframes movit {
-  10% ,90%{
-    transform: rotate(4deg);
+  20% ,90%{
+    transform: rotate(5deg);
   }
-  15%{
+  35%{
     transform: rotate(-4deg);
   }
 }
@@ -184,12 +221,14 @@ margin-right: 20px;
 #quiz-title{
   font-family: 'Jost';
   margin-left: 20px;
+  font-size: 35px;
 }
 
 
 #question-title{
   font-family: 'Jost';
-  margin-top: 64px;
+  margin-top: 54px;
+  font-size: 15px;
   margin-left: 20px;
 }
 

@@ -81,32 +81,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             questionOptions.appendChild(optionElement);
         });
-        feedback.textContent = '';
     }
 
     function checkAnswer(selectedOption) {
         const currentQuestion = currentQuizData[currentQuestionIndex];
         const optionButtons = document.querySelectorAll('.option-btn');
-        let selectedButton = questionOptions;
         optionButtons.forEach(button => button.disabled = true);
         if (selectedOption === currentQuestion.answer) {
-            feedback.textContent = 'Correct!';
-            feedback.style.color = 'green';
-            selectedButton.style.backgroundColor = '#7BE29E';
-            
-            score++;
-        } else {
-            feedback.textContent = `Wrong! The correct answer is ${currentQuestion.answer}.`;
-            feedback.style.color = 'red';
-            selectedButton.style.backgroundColor = '#F2A8A8';
             optionButtons.forEach(button => {
                 if (button.textContent === currentQuestion.answer) {
-                    button.style.backgroundColor = '#7BE29E';
+                    button.style.backgroundColor = '#7BE29E'; // Change text color to green for correct answer
+                }
+            });
+            score++;
+        } else {
+            optionButtons.forEach(button => {
+                if (button.textContent === currentQuestion.answer) {
+                    button.style.backgroundColor = '#7BE29E'; // Change text color to green for correct answer
+                } else if (button.textContent === selectedOption) {
+                    button.style.backgroundColor = '#F2A8A8'; // Change text color to red for incorrect answer
                 }
             });
         }
     }
-
     nextBtn.addEventListener('click', function() {
         currentQuestionIndex++;
         if (currentQuestionIndex < currentQuizData.length) {
